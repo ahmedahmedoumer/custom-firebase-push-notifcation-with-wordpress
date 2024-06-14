@@ -1,0 +1,8 @@
+# Ignore the main vendor directory
+/vendor
+
+# Ignore the vendor directory within the create-custom-column plugin
+/wp-content/plugins/create-custom-column/vendor
+
+# Ignore the vendor directory within the fcm-notification plugin
+/wp-content/plugins/fcm-notification/vendor
