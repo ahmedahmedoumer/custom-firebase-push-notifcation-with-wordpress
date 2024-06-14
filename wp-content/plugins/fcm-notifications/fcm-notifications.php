@@ -52,7 +52,7 @@ function get_device_tokens() {
 }
 
 function send_fcm_to_device($device_token, $access_token, $post_id) {
-    $ch = curl_init("https://fcm.googleapis.com/v1/projects/project-blog-test-d67dc/messages:send");
+    $ch = curl_init("https://fcm.googleapis.com/v1/projects/web-notification-4ae2b/messages:send");
 
     curl_setopt($ch, CURLOPT_HTTPHEADER, [
         'Content-Type: application/json',

@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script>
+<!-- <script>
 	document.addEventListener('DOMContentLoaded', function() {
 		const beamsClient = new PusherPushNotifications.Client({
 			instanceId: '5cb83df8-4593-4836-9fa0-4b4702b61294',
@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			.then(() => console.log('Pusher Beams initialized'))
 			.catch(console.error);
 	});
-</script>
+</script> -->
 <?php 
 if ( apply_filters( 'astra_header_profile_gmpg_link', true ) ) {
 	?>
