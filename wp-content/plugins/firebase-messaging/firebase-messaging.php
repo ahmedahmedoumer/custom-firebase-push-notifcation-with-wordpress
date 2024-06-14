@@ -13,6 +13,7 @@ function enqueue_firebase_scripts() {
 
     // Localize the script with the AJAX URL
     wp_localize_script('jquery', 'my_ajax_object', array('ajaxurl' => admin_url('admin-ajax.php')));
+    wp_enqueue_script('firebase-config', plugin_dir_url(__FILE__) . '../firebase-config.js', array(), null, true);
 
     ?>
     <script type="module">
@@ -20,15 +21,17 @@ function enqueue_firebase_scripts() {
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
         import { getMessaging, getToken } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-messaging.js";
 
-        const firebaseConfig = {
-            apiKey: "AIzaSyA-66ZIon376N2xpzP8TQq0Xlstq-YfOwg",
-            authDomain: "project-blog-test-d67dc.firebaseapp.com",
-            projectId: "project-blog-test-d67dc",
-            storageBucket: "project-blog-test-d67dc.appspot.com",
-            messagingSenderId: "641626738940",
-            appId: "1:641626738940:web:742f37ca9730cd20fe8779",
-            measurementId: "G-P97MTDEB20"
-            };
+        import { firebaseConfig, vapidKey } from "<?php echo plugin_dir_url(__FILE__); ?>../firebase-config.js";
+        
+        // const firebaseConfig = {
+        //     apiKey: "AIzaSyA-66ZIon376N2xpzP8TQq0Xlstq-YfOwg",
+        //     authDomain: "project-blog-test-d67dc.firebaseapp.com",
+        //     projectId: "project-blog-test-d67dc",
+        //     storageBucket: "project-blog-test-d67dc.appspot.com",
+        //     messagingSenderId: "641626738940",
+        //     appId: "1:641626738940:web:742f37ca9730cd20fe8779",
+        //     measurementId: "G-P97MTDEB20"
+        //     };
 
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
@@ -71,7 +74,7 @@ function enqueue_firebase_scripts() {
                     navigator.serviceWorker.register("<?php echo plugin_dir_url(__FILE__); ?>sw.js").then(registration => {
                         getToken(messaging, {
                             serviceWorkerRegistration: registration,
-                            vapidKey: 'BDg4Saw-emQk2B0CmW0lbSv_Bsat60jZtLKTwmLndJsYf_a6btOU06CZUidF14amRoRtPVRws3q2XPkEKSfR6kA'
+                            vapidKey: vapidKey,
                         }).then((currentToken) => {
                             if (currentToken) {
                                 console.log("Token is: " + currentToken);

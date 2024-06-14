@@ -6,3 +6,18 @@
 
 # Ignore the vendor directory within the fcm-notification plugin
 /wp-content/plugins/fcm-notification/vendor
+
+
+/wp-content/plugins/fcm-notification/vendor
+
+/wp-content/plugins/create-custom-column/pvkey
+
+/wp-content/plugins/fcm-notifications/pvkey
+
+/wp-content/plugins/firebase-messaging/pvkey
+
+/wp-content/plugins/firebase-config
+
+
+
+
